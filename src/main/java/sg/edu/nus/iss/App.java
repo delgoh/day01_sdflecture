@@ -42,27 +42,43 @@ public class App {
                 System.out.println("Cool");
                 break;
             default:
-                System.out.println("What's this %s?" + input);
+                System.out.println("What's this " + input + "?");
         }
 
         // Slide 19
         String ageStr = cons.readLine("What is your age?");
-        Integer ageInt = Integer.parseInt(ageStr);
-        
-        if (ageInt < 0)
-            System.out.println("You are from the future");
-        else if (ageInt < 2)
-            System.out.println("You are a baby");
-        else if (ageInt < 4)
-            System.out.println("You are a toddler");
-        else if (ageInt < 12)
-            System.out.println("You are a child");
-        else if (ageInt < 19)
-            System.out.println("You are a teen");
-        else if (ageInt < 120)
-            System.out.println("You are an adult");
-        else
-            System.out.println("Are you a ghost/AI?");
+        Integer ageInt = 0;
+        try {
+            ageInt = Integer.parseInt(ageStr);
+            if (ageInt < 0)
+                System.out.println("You are from the future");
+            else if (ageInt < 2)
+                System.out.println("You are a baby");
+            else if (ageInt < 4)
+                System.out.println("You are a toddler");
+            else if (ageInt < 12)
+                System.out.println("You are a child");
+            else if (ageInt < 19)
+                System.out.println("You are a teen");
+            else if (ageInt < 120)
+                System.out.println("You are an adult");
+            else
+                System.out.println("You are a ghost");
+        } catch (Exception e) {
+            System.out.println("Your input wasn't a number.");
+        }
+
+        // Slide 21
+        Integer i = 0;
+        input = cons.readLine("Type a phrase: ");
+        while (i < input.length()) {
+            if (i % 2 == 0)
+                System.out.println(input.substring(0,i).toUpperCase());
+            else
+                System.out.println(input.substring(0,i).toLowerCase());
+            i++;
+        }
+
 
     }
 }
